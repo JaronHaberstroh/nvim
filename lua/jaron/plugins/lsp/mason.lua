@@ -5,15 +5,10 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
-		-- import mason
 		local mason = require("mason")
-
-		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
-
 		local mason_tool_installer = require("mason-tool-installer")
 
-		-- enable mason and configure icons
 		mason.setup({
 			ui = {
 				icons = {
@@ -25,20 +20,19 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			-- list of servers for mason to install
 			ensure_installed = {
 				"bashls",
 				"cssls",
-				"emmet_ls",
 				"eslint",
 				"html",
 				"jsonls",
 				"lua_ls",
 				"markdown_oxide",
-				"pyright",
+				"pylsp",
 				"rubocop",
-				"tsserver",
-				"yamlls",
+				"ruby_lsp",
+				"tailwindcss",
+				"ts_ls",
 			},
 		})
 
@@ -47,9 +41,9 @@ return {
 				"black", -- python formatter
 				"eslint_d",
 				"isort", -- python formatter
-				"prettier", -- prettier formatter
+				"prettier",
 				"pylint",
-				"stylua", -- lua formatter
+				"stylua",
 			},
 		})
 	end,

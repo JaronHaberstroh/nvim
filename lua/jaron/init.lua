@@ -1,3 +1,3 @@
-require("jaron.core.options")
-require("jaron.core.keymaps")
-require("jaron.lazy")
+require("jaron.config.options")
+require("jaron.config.keymaps")
+require("jaron.config.lazy")
