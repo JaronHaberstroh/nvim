@@ -60,7 +60,6 @@ return {
 		scratch = { enabled = false },
 		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
-		styles = { enabled = false },
 		terminal = { enabled = false },
 		toggle = { enabled = false },
 		win = { enabled = true },
