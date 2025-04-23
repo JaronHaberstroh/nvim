@@ -3,14 +3,19 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local mason_lsp = require("mason-lspconfig")
 		local cmp = require("cmp_nvim_lsp")
+
+		local mason = require("mason")
+		local mason_lsp = require("mason-lspconfig")
+		local mason_tool_installer = require("mason-tool-installer")
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -100,6 +105,44 @@ return {
 				})
 			end,
 		}
-		mason_lsp.setup({ handlers = handlers })
+
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+			},
+		})
+
+		mason_lsp.setup({
+			handlers = handlers,
+			ensure_installed = {
+				"bashls",
+				"cssls",
+				"eslint",
+				"html",
+				"jsonls",
+				"lua_ls",
+				"markdown_oxide",
+				"pylsp",
+				"rubocop",
+				"ruby_lsp",
+				"tailwindcss",
+				"ts_ls",
+			},
+		})
+
+		mason_tool_installer.setup({
+			ensure_installed = {
+				"black", -- python formatter
+				"eslint_d",
+				"isort", -- python formatter
+				"prettier",
+				"pylint",
+				"stylua",
+			},
+		})
 	end,
 }
