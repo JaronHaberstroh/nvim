@@ -8,8 +8,8 @@ return {
 		"hrsh7th/cmp-cmdline",
 
 		-- vsnip
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/vim-vsnip",
+		-- "hrsh7th/cmp-vsnip",
+		-- "hrsh7th/vim-vsnip",
 
 		-- luasnip
 		"L3MON4D3/LuaSnip",
@@ -49,7 +49,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- For luasnip users.
-				{ name = "vsnip" }, -- For vsnip users.
+				-- { name = "vsnip" }, -- For vsnip users.
 			}, {
 				{ name = "buffer" },
 				{ name = "path" },
