@@ -4,6 +4,7 @@ return {
 	---@type oil.SetupOpts
 	opts = {
 		-- Configuration for the floating window in oil.open_float
+		win_options = { signcolumn = "yes:2" },
 		float = {
 			-- Padding around the floating window
 			padding = 2,
@@ -28,7 +29,7 @@ return {
 				return false
 			end,
 			-- Window-local options to use for preview window buffers
-			win_options = {},
+			win_options = { signcolumn = "yes:2" },
 		},
 	},
 	-- Optional dependencies
