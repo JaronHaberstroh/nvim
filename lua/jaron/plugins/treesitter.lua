@@ -44,7 +44,6 @@ return {
 				"query",
 				"ruby",
 				"tmux",
-				"todo:",
 				"tsx",
 				"typescript",
 				"vim",
