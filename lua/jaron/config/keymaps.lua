@@ -1,12 +1,21 @@
-vim.keymap.set("i", "jk", "<esc>", { desc = "escape insert mode using jk" })
+local function map(mode, l, r, desc)
+	vim.keymap.set(mode, l, r, { desc = desc })
+end
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "shift selection up the file" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "shift selection up the file" })
+map("i", "jk", "<esc>", "escape insert mode using jk")
+
+-- moves selection
+map("v", "J", ":m '>+1<CR>gv=gv", "shift selection up the file")
+map("v", "K", ":m '<-2<CR>gv=gv", "shift selection up the file")
+
+-- overwrite scroll page default behavior
+map("n", "<C-d>", "<C-d>zz", "scrolls down file then centers line on screen")
+map("n", "<C-u>", "<C-u>zz", "scrolls up file then centers line on screen")
 
 -- window management
-vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
-vim.keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" })
+map("n", "<leader>wv", "<C-w>v", "Split window vertically")
+map("n", "<leader>wh", "<C-w>s", "Split window horizontally")
+map("n", "<leader>we", "<C-w>=", "Make splits equal size")
+map("n", "<leader>wx", "<cmd>close<CR>", "Close current split")
 
-vim.keymap.set("n", "<leader>so", ":so<cr>", { desc = "source file" })
+map("n", "<leader>so", ":so<cr>", "source current file")

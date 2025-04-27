@@ -12,18 +12,19 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			css = { "prettier", "prettierd", stop_after_first = true },
-			html = { "prettier", "prettierd", stop_after_first = true },
-			javascript = { "prettier", "prettierd", stop_after_first = true },
-			javascriptreact = { "prettier", "prettierd", stop_after_first = true },
-			json = { "prettier", "prettierd", stop_after_first = true },
+			css = { "prettierd", "prettier", stop_after_first = true },
+			html = { "prettierd", "prettier", stop_after_first = true },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
+			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+			json = { "prettierd", "prettier", stop_after_first = true },
 			lua = { "stylua" },
-			markdown = { "prettier", "prettierd", stop_after_first = true },
-			python = { "black", "isort", stop_after_first = true },
+			markdown = { "prettierd", "prettier", stop_after_first = true },
+			python = { "isort", "black" },
 			ruby = { "rubocop" },
-			typescript = { "prettier", "prettierd", stop_after_first = true },
-			typescriptreact = { "prettier", "prettierd", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 		},
+
 		format_on_save = {
 			async = false,
 			lsp_format = "fallback",

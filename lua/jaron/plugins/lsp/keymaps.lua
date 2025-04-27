@@ -1,46 +1,34 @@
+local keymap = {}
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	callback = function()
-		vim.keymap.set("n", "<leader>d", function()
+	callback = function(ev)
+		local function map(mode, l, r, desc)
+			vim.keymap.set(mode, l, r, { buffer = ev.buf, silent = true, desc = desc })
+		end
+
+		map("n", "<leader>d", function()
 			vim.diagnostic.open_float()
-		end, { desc = "show diagnostics for line" })
+		end, "show diagnostics for line")
 
-		vim.keymap.set(
-			"n",
-			"<leader>D",
-			"<cmd>Telescope diagnostics bufnr=0<CR>",
-			{ desc = "show diagnostics for file" }
-		)
+		map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "show diagnostics for file")
 
-		vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", { desc = "show definition/references" })
+		map("n", "gR", "<cmd>Telescope lsp_references<CR>", "show references in telescope")
 
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
+		map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
 
-		vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "show lsp_definitions in telescope" })
+		map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", "show lsp_definitions in telescope")
 
-		vim.keymap.set(
-			"n",
-			"gi",
-			"<cmd>Telescope lsp_implementations<CR>",
-			{ desc = "show lsp_implementations in telescope" }
-		)
+		map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", "show lsp_implementations in telescope")
 
-		vim.keymap.set(
-			"n",
-			"gt",
-			"<cmd>Telescope lsp_type_definitions<CR>",
-			{ desc = "show lsp_type_definitions in telescope" }
-		)
+		map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", "show lsp_type_def in telescope")
 
-		vim.keymap.set(
-			{ "n", "v" },
-			"<leader>ca",
-			vim.lsp.buf.code_action,
-			{ desc = "see available code actions for buf or selection" }
-		)
+		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "see available code actions for buffer of selection")
 
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "use vim smart rename function" })
+		map("n", "<leader>rn", vim.lsp.buf.rename, "use vim smart rename function")
 
-		vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "restart lsp" })
+		map("n", "<leader>rs", ":LspRestart<CR>", "restart lsp")
 	end,
 })
+
+return keymap

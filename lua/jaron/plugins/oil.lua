@@ -1,5 +1,15 @@
 return {
 	"stevearc/oil.nvim",
+	dependencies = {
+		{ "echasnovski/mini.icons", opts = {} },
+		-- Optional dependencies
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+	},
+	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+	lazy = false,
+	keys = {
+		{ "-", "<cmd>Oil --float<cr>", desc = "Open Oil file manager" },
+	},
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {
@@ -31,13 +41,5 @@ return {
 			-- Window-local options to use for preview window buffers
 			win_options = { signcolumn = "yes:2" },
 		},
-	},
-	-- Optional dependencies
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
-	-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-	lazy = false,
-	keys = {
-		{ "-", "<cmd>Oil --float<cr>", desc = "Open Oil file manager" },
 	},
 }
