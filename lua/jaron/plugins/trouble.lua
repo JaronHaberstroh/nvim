@@ -33,7 +33,7 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
 		},
-		{ "<leader>xt", "<cmd>TodoTrouble<CR>", desc = "Open todos in trouble" },
+		{ "<leader>xt", "<cmd>TodoTrouble toggle<CR>", desc = "Open todos in trouble" },
 		{
 			"]x",
 			function()
