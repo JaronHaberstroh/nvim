@@ -6,14 +6,17 @@ return {
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
 		local colors = {
-			blue = "#65D1FF",
-			green = "#3EFFDC",
-			violet = "#FF61EF",
-			yellow = "#FFDA7B",
-			red = "#FF4A4A",
-			fg = "#c3ccdc",
-			bg = "#112638",
-			inactive_bg = "#2c3043",
+			bg = "#1e2030",
+			fg = "#c8d3f5",
+			inactive_bg = "#1a1b26",
+			blue = "#82aaff",
+			cyan = "#7dcfff",
+			gray = "#7a88cf",
+			green = "#c3e88d",
+			orange = "#ff9e64",
+			red = "#f7768e",
+			violet = "#c099ff",
+			yellow = "#ffcb6b",
 		}
 
 		local my_lualine_theme = {
@@ -43,9 +46,9 @@ return {
 				c = { bg = colors.bg, fg = colors.fg },
 			},
 			inactive = {
-				a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-				b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-				c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+				a = { bg = colors.inactive_bg, fg = colors.gray, gui = "bold" },
+				b = { bg = colors.inactive_bg, fg = colors.gray },
+				c = { bg = colors.inactive_bg, fg = colors.gray },
 			},
 		}
 
@@ -53,19 +56,49 @@ return {
 		lualine.setup({
 			options = {
 				theme = my_lualine_theme,
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				icons_enabled = true,
 			},
 			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff" },
+				lualine_c = {
+					{
+						"filename",
+						path = 1,
+						symbols = {
+							modified = " ●",
+							readonly = " 🔒",
+							unnamed = "[No Name]",
+						},
+					},
+				},
 				lualine_x = {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
-						color = { fg = "#ff9e64" },
+						color = { fg = colors.orange },
 					},
-					{ "encoding" },
-					{ "fileformat" },
-					{ "filetype" },
+					"encoding",
+					"fileformat",
+					"filetype",
 				},
+				lualine_y = {
+					{ "diagnostics", sources = { "nvim_diagnostic" } },
+				},
+				lualine_z = { "location" },
 			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = { { "filename", path = 1 } },
+				lualine_x = { "location" },
+				lualine_y = {},
+				lualine_z = {},
+			},
+			tabline = {},
+			extensions = {},
 		})
 	end,
 }
