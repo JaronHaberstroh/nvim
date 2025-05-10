@@ -1,4 +1,5 @@
 return {
+	enabled = false,
 	"gbprod/substitute.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
