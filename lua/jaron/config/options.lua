@@ -34,7 +34,7 @@ local options = {
 }
 
 -- clipboard
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 vim.opt.shortmess:append("c")
 
 local function apply_vim_options(options_table)
