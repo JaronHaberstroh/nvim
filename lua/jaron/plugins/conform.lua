@@ -25,10 +25,10 @@ return {
 			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 		},
 
-		format_on_save = {
-			async = false,
-			lsp_format = "fallback",
-			timeout_ms = 1000,
-		},
+		-- format_on_save = {
+		-- 	async = false,
+		-- 	lsp_format = "fallback",
+		-- 	timeout_ms = 1000,
+		-- },
 	},
 }
