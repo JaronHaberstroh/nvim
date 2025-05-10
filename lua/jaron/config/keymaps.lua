@@ -12,6 +12,9 @@ map("v", "K", ":m '<-2<CR>gv=gv", "shift selection up the file")
 map("n", "<C-d>", "<C-d>zz", "scrolls down file then centers line on screen")
 map("n", "<C-u>", "<C-u>zz", "scrolls up file then centers line on screen")
 
+-- copy to system clipboard
+map({ "n", "v" }, "<leader>y", '"+y', "copy to system clipboard")
+
 -- window management
 map("n", "<leader>wv", "<C-w>v", "Split window vertically")
 map("n", "<leader>wh", "<C-w>s", "Split window horizontally")
