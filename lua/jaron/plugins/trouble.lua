@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	lazy = true,
 	dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
 	cmd = "Trouble",
 	keys = {

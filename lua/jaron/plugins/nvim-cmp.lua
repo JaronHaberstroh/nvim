@@ -1,11 +1,12 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = { "InsertEnter", "CmdlineEnter" },
+	event = { "LspAttach", "InsertEnter" },
+	lazy = true,
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-path", -- source for file system paths
-		"hrsh7th/cmp-cmdline",
+		{ "hrsh7th/cmp-cmdline", event = { "CmdlineEnter" }, lazy = true },
 
 		-- vsnip
 		-- "hrsh7th/cmp-vsnip",
@@ -17,7 +18,6 @@ return {
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
-
 	config = function()
 		-- Set up nvim-cmp.
 		local cmp = require("cmp")

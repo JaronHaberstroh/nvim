@@ -2,7 +2,8 @@ return {
 	"luckasRanarison/tailwind-tools.nvim",
 	name = "tailwind-tools",
 	build = ":UpdateRemotePlugins",
-	event = "VeryLazy",
+	event = { "VeryLazy", "LspAttach" },
+	lazy = true,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-telescope/telescope.nvim", -- optional

@@ -1,7 +1,7 @@
 return {
-	enabled = false,
 	"gbprod/substitute.nvim",
 	event = { "BufReadPre", "BufNewFile" },
+	lazy = true,
 	config = function()
 		require("substitute").setup()
 		vim.keymap.set("n", "s", require("substitute").operator, { noremap = true, desc = "Substitute with motion" })

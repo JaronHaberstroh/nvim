@@ -1,6 +1,7 @@
 return {
 	"mfussenegger/nvim-lint",
 	event = { "BufReadPre", "BufNewFile" },
+	lazy = true,
 	keys = {
 		{
 			"<leader>ml",
