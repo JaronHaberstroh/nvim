@@ -8,7 +8,8 @@ return {
 	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 	lazy = false,
 	keys = {
-		{ "-", "<cmd>Oil --float<cr>", desc = "Open Oil file manager" },
+		{ "-", "<cmd>Oil<cr>", desc = "Open Oil file manager" },
+		{ "<leader>-", "<cmd>Oil --float<cr>", desc = "Open Oil file manager in float" },
 	},
 	---@module 'oil'
 	---@type oil.SetupOpts

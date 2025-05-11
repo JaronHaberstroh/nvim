@@ -36,7 +36,7 @@ return {
 		dim = { enabled = false },
 		explorer = { enabled = false },
 		gitbrowse = { enabled = false },
-		image = { enabled = false },
+		image = { enabled = true },
 		indent = { enabled = false },
 		input = { enabled = true },
 		layout = { enabled = false },
